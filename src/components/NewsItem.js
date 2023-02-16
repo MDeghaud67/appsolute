@@ -23,6 +23,7 @@ function NewsItem() {
         setError(error);
     })*/
 }, [url])
+
 const listArticle = news.articles
 //console.log(listArticle)
 
@@ -35,6 +36,7 @@ const card = Array.isArray(listArticle) ? listArticle.map((article, index) => {
         <Card.Text>
           {article.source.name}
         </Card.Text>
+        <Button variant="primary" href={article.url}>See Details</Button>
       </Card.Body>
     </Card>
   )
