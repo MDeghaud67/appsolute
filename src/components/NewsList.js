@@ -4,12 +4,10 @@ import axios from "axios";
 
 function NewsList() {
     const [news, setNews] = useState([]);
-
-    //const news = [1, 2, 3, 4, 5]
+    const API_KEY = process.env.REACT_APP_API_KEY;
     var url = 'https://newsapi.org/v2/everything?' +
     'q=bitcoin&' +
-    'apiKey=ba69ab307cdb419b8a53abdd9efea53b';
-    //var url = 'https://jsonplaceholder.typicode.com/posts/1'
+    'apiKey='+API_KEY;
 
     useEffect(() => {
         axios.get(url)
