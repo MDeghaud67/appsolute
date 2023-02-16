@@ -1,7 +1,6 @@
 import axios from "axios";
-import logo from "./../bitcoin-logo.webp"
 import React, { useState } from "react";
-import { Button, Card, Row } from "react-bootstrap";
+import { Button, Card } from "react-bootstrap";
 
 function NewsItem() {
   const [news, setNews] = useState([]);
@@ -13,16 +12,8 @@ function NewsItem() {
   React.useEffect(() => {
     axios.get(url)
         .then((response) => {
-            //console.log(response.json())
             setNews(response.data)
-            //articles: [] 
         })
-    /*.then((result) => {
-        setNews(result)
-    })
-    .catch((error) => {
-        setError(error);
-    })*/
 }, [url])
 
 const listArticle = news.articles
@@ -31,7 +22,7 @@ const listArticle = news.articles
 const card = Array.isArray(listArticle) ? listArticle.map((article, index) => {
   return (
     <Card style={{ width: '18rem' }} key={index}>
-      <Card.Img variant="top" src={logo} />
+      <Card.Img variant="top" src={article.urlToImage} />
       <Card.Body>
         <Card.Title>{article.title}</Card.Title>
         <Card.Text>
