@@ -26,9 +26,9 @@ function NewsItem() {
 const listArticle = news.articles
 //console.log(listArticle)
 
-const card = Array.isArray(listArticle) ? listArticle.map((article) => {
+const card = Array.isArray(listArticle) ? listArticle.map((article, index) => {
   return (
-    <Card style={{ width: '18rem' }}>
+    <Card style={{ width: '18rem' }} key={index}>
       <Card.Img variant="top" src={logo} />
       <Card.Body>
         <Card.Title>{article.title}</Card.Title>
