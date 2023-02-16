@@ -1,7 +1,7 @@
 import axios from "axios";
 import logo from "./../bitcoin-logo.webp"
 import React, { useState } from "react";
-import { Button, Card } from "react-bootstrap";
+import { Button, Card, Row } from "react-bootstrap";
 
 function NewsItem() {
   const [news, setNews] = useState([]);
