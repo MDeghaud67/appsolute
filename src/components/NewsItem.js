@@ -1,4 +1,5 @@
 import axios from "axios";
+import logo from "./../bitcoin-logo.webp"
 import React, { useState } from "react";
 import { Button, Card } from "react-bootstrap";
 
@@ -28,7 +29,7 @@ const listArticle = news.articles
 const card = Array.isArray(listArticle) ? listArticle.map((article) => {
   return (
     <Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src="holder.js/100px180" />
+      <Card.Img variant="top" src={logo} />
       <Card.Body>
         <Card.Title>{article.title}</Card.Title>
         <Card.Text>
