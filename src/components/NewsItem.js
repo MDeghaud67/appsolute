@@ -5,9 +5,10 @@ import { Button, Card } from "react-bootstrap";
 
 function NewsItem() {
   const [news, setNews] = useState([]);
+  const API_KEY = process.env.REACT_APP_API_KEY;
   var url = 'https://newsapi.org/v2/everything?' +
   'q=bitcoin&' +
-  'apiKey=ba69ab307cdb419b8a53abdd9efea53b';
+  'apiKey='+API_KEY;
   
   React.useEffect(() => {
     axios.get(url)
