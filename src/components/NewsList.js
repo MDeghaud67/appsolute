@@ -16,7 +16,7 @@ function NewsList() {
             })
     }, [url])
     return (
-        Object.values(news).map((item, index) => (
+        Object.values(news).map((index) => (
             <NewsItem key={index} />
         ))
     )
