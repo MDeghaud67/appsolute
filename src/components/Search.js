@@ -43,7 +43,8 @@ function Search() {
                                 type="text"
                                 //value={inputValue}
                                 onChange={(e) => {
-                                    setInputValue(e.target.value) 
+                                    let value = e.target.value
+                                    value.length > 2 && setInputValue(value) 
                                 }}
                                 name="street-address"
                                 id="street-address"
@@ -54,7 +55,7 @@ function Search() {
                         <ul>
                             {Array.isArray(listArticle) ? listArticle
                                 .filter((val) => {
-                                    return val.title.includes(inputValue)
+                                    return val.title.toLowerCase().includes(inputValue.toLowerCase())
                                 })
                                 .map((val) => {
                                     return (
