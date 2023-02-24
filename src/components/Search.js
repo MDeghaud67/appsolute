@@ -50,17 +50,19 @@ function Search() {
                                 autoComplete="street-address"
                                 className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                             />
-                        <ul className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                            {Array.isArray(listArticle) ? listArticle
-                                .filter((val) => {
-                                    return val.title.toLowerCase().includes(inputValue.toLowerCase())
-                                })
-                                .map((val, index) => {
-                                    return (
-                                        <li key={index} className="block px-4 py-2 text-sm text-gray-700">{val.title}</li>
-                                    )
-                                }) : []}
-                        </ul>
+                            {inputValue.length > 2 && (
+                                <ul className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                                {Array.isArray(listArticle) ? listArticle
+                                    .filter((val) => {
+                                        return val.title.toLowerCase().includes(inputValue.toLowerCase())
+                                    })
+                                    .map((val, index) => {
+                                        return (
+                                            <li key={index} className="block px-4 py-2 text-sm text-gray-700">{val.title}</li>
+                                        )
+                                    }) : []}
+                            </ul>
+                            )}
         </form>
     )
 }
