@@ -54,11 +54,20 @@ function Search() {
                                 <ul className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                                 {Array.isArray(listArticle) ? listArticle
                                     .filter((val) => {
-                                        return val.title.toLowerCase().includes(inputValue.toLowerCase())
+                                        return (
+                                            val.title.toLowerCase().includes(inputValue.toLowerCase())
+                                            //val.source.name.toLowerCase().includes(inputValue.toLowerCase())
+                                            //val.author.toLowerCase().includes(inputValue.toLowerCase())
+                                            
+                                        )
                                     })
                                     .map((val, index) => {
                                         return (
-                                            <li key={index} className="block px-4 py-2 text-sm text-gray-700">{val.title}</li>
+                                            <a key={index} href={val.url}>
+                                                <li className="block px-4 py-2 text-sm text-gray-700">{val.title}</li>
+                                                <li className="block px-4 py-2 text-sm text-gray-700">{val.source.name}</li>
+                                                <li className="block px-4 py-2 text-sm text-gray-700">{val.author}</li>
+                                            </a>
                                         )
                                     }) : []}
                             </ul>
